@@ -9,7 +9,7 @@ const Login = () => {
     username: "undefined",
     password: "undefined",
   });
-  const { user, loading, error, dispatch } = useContext(AuthContext);
+  const { loading, error, dispatch } = useContext(AuthContext);
   // navigate on routes
   const navigate = useNavigate();
 
@@ -28,7 +28,6 @@ const Login = () => {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
     }
   };
-  console.log(user);
 
   return (
     <div className="login">

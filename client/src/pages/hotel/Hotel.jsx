@@ -11,16 +11,21 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from "../../components/hooks/useFetch";
 import { SearchContext } from "../../context/searchContext";
 import { parseWithOptions } from "date-fns/fp";
+import { AuthContext } from "../../context/authContext";
+import Reserve from "../../components/reserve/Reserve";
 
 const Hotel = () => {
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   //using queries
   const { data, loading, error } = useFetch(`/hotels/find/${id}`);
   // how many night a user wants to stay in hotel
@@ -49,6 +54,13 @@ const Hotel = () => {
     }
 
     setSlideNumber(newSlideNumber);
+  };
+  const handleClick = () => {
+    if (user) {
+      setOpenModal(true);
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -86,18 +98,20 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reservez maintenant!</button>
+            <button onClick={handleClick} className="bookNow">
+              Reservez maintenant!
+            </button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
             </div>
             <span className="hotelDistance">
-              Excellente emplacement – à {data.distance}m du centre ville
+              Excellent emplacement – à {data.distance}m du centre ville
             </span>
             <span className="hotelPriceHighlight">
               Réservez un séjour de plus de ${data.cheapestPrice} dans cette
-              propriété et recevez une course gratuite à l'aéroport
+              propriété et recevez une course gratuite à l'aéroport!
             </span>
             <div className="hotelImages">
               {data.photos?.map((photo, i) => (
@@ -123,10 +137,10 @@ const Hotel = () => {
                   emplacement avec un score de 9.8!
                 </span>
                 <h2>
-                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
+                  <b>{days * data.cheapestPrice * options.room}€</b> ({days}{" "}
                   nuits)
                 </h2>
-                <button>Reservez maintenant!</button>
+                <button onClick={handleClick}>Reservez maintenant!</button>
               </div>
             </div>
           </div>
@@ -134,6 +148,7 @@ const Hotel = () => {
           <Footer />
         </div>
       )}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
     </div>
   );
 };

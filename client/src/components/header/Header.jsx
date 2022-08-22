@@ -16,6 +16,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/searchContext";
+import { AuthContext } from "../../context/authContext";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -35,6 +36,8 @@ const Header = ({ type }) => {
   });
 
   const navigate = useNavigate();
+  // if there is a user we don't display register/login button
+  const { user } = useContext(AuthContext);
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -91,7 +94,10 @@ const Header = ({ type }) => {
               immédiates de 10% ou plus lors de votre inscription gratuite sur
               Senbooking
             </p>
-            <button className="headerBtn">Connexion / Inscription</button>
+
+            {!user && (
+              <button className="headerBtn">Connexion / Inscription</button>
+            )}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />

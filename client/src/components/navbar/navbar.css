@@ -18,6 +18,11 @@
   font-weight: 700;
   font-size: larger;
 }
+.username {
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 .navButton {
   margin-left: 20px;

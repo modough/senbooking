@@ -1,0 +1,80 @@
+.reserve {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.418);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rContainer {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  border-radius: 5px;
+}
+.rClose {
+  position: absolute;
+  cursor: pointer;
+  top: -15px;
+  right: -15px;
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+
+.rItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 50px;
+  border-bottom: 1px solid black;
+}
+.rInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.rTitle {
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+.rDesc {
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.rMax {
+  font-size: 12px;
+}
+.rPrice {
+  font-weight: 500;
+}
+.rSelectRooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 8px;
+  color: gray;
+}
+.room {
+  display: flex;
+  flex-direction: column;
+}
+input[type="checkbox"] {
+  accent-color: #0071c2;
+}
+.rButton {
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
