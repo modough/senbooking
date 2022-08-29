@@ -14,7 +14,7 @@ import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { SearchContext } from "../../context/searchContext";
 import { AuthContext } from "../../context/authContext";
 
@@ -52,7 +52,9 @@ const Header = ({ type }) => {
 
   const handleSearch = () => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
-    navigate("/hotels", { state: { destination, dates, options } });
+    navigate("/hotels/", {
+      state: { destination, dates, options },
+    });
   };
 
   return (
@@ -63,10 +65,14 @@ const Header = ({ type }) => {
         }
       >
         <div className="headerList">
-          <div className="headerListItem active">
+          <Link
+            to=""
+            className="headerListItem active"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <FontAwesomeIcon icon={faBed} />
             <span>Séjours</span>
-          </div>
+          </Link>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
             <span>Vols</span>
@@ -113,10 +119,13 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(dates[0].startDate, "MM/dd/yyyy")} à ${format(
-                  dates[0].endDate,
-                  "MM/dd/yyyy"
-                )}`}</span>
+                >
+                  Du{" "}
+                  {`${format(dates[0].startDate, "dd/MM/yyyy")} au ${format(
+                    dates[0].endDate,
+                    "dd/MM/yyyy"
+                  )}`}
+                </span>
                 {openDate && (
                   <DateRange
                     editableDateInputs={true}

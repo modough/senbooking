@@ -16,7 +16,7 @@ const List = () => {
   const [options, setOptions] = useState(location.state.options);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
-  const { data, loading, error, reFetch } = useFetch(
+  const { data, loading, reFetch } = useFetch(
     `/hotels?city=${destination}&min=${min || 0}&max=${max || 9999}`
   );
   const handleClick = () => {
@@ -30,17 +30,20 @@ const List = () => {
       <div className="listContainer">
         <div className="listWrapper">
           <div className="listSearch">
-            <h1 className="lsTitle">recherche</h1>
+            <h1 className="lsTitle">Recherche</h1>
             <div className="lsItem">
               <label>Destination</label>
               <input placeholder={destination} type="text" />
             </div>
             <div className="lsItem">
               <label>Date d'arrivée</label>
-              <span onClick={() => setOpenDate(!openDate)}>{`${format(
-                dates[0].startDate,
-                "MM/dd/yyyy"
-              )} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
+              <span onClick={() => setOpenDate(!openDate)}>
+                Du{" "}
+                {`${format(dates[0].startDate, "dd/MM/yyyy")} au ${format(
+                  dates[0].endDate,
+                  "dd/MM/yyyy"
+                )}`}
+              </span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDates([item.selection])}

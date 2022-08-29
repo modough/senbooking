@@ -3,8 +3,8 @@ import useFetch from "../hooks/useFetch";
 import "./featured.css";
 
 const Featured = () => {
-  const { data, loading, error } = useFetch(
-    "hotels/countbycity?cities=berlin,madrid,london"
+  const { data, loading } = useFetch(
+    "hotels/countbycity?cities=dakar,saly,cap-skirring"
   );
   console.log(data);
   return (
@@ -15,35 +15,35 @@ const Featured = () => {
         <Fragment>
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
+              src="https://media-cdn.tripadvisor.com/media/photo-s/11/d6/38/9b/exterior.jpg"
               alt=""
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>berlin</h1>
+              <h1>dakar</h1>
               <h2>{data[0]} propriétés</h2>
             </div>
           </div>
 
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/690334.webp?k=b99df435f06a15a1568ddd5f55d239507c0156985577681ab91274f917af6dbb&o="
+              src="https://arbiterz.com/wp-content/uploads/2020/02/1-1.jpg"
               alt=""
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>madrid</h1>
+              <h1>saly</h1>
               <h2>{data[1]} propriétés</h2>
             </div>
           </div>
           <div className="featuredItem">
             <img
-              src="https://cf.bstatic.com/xdata/images/city/max500/689422.webp?k=2595c93e7e067b9ba95f90713f80ba6e5fa88a66e6e55600bd27a5128808fdf2&o="
+              src="https://www.tourmag.com/photo/art/grande/42042572-35173777.jpg?v=1579694905"
               alt=""
               className="featuredImg"
             />
             <div className="featuredTitles">
-              <h1>london</h1>
+              <h1>cap skirring</h1>
               <h2>{data[2]} propriétés</h2>
             </div>
           </div>

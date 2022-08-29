@@ -2,6 +2,7 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
+import Logout from "../../pages/logout/Logout";
 
 const Navbar = () => {
   // we want to use the user on the navbar
@@ -13,11 +14,28 @@ const Navbar = () => {
           <span className="logo">Senbooking</span>
         </Link>
         {user ? (
-          <div className="username">Bienvenue {user.username}</div>
+          <div className="navItems">
+            <div className="username">Bienvenue {user.username}</div>
+            <Logout />
+          </div>
         ) : (
           <div className="navItems">
-            <button className="navButton">Inscription</button>
-            <button className="navButton">Connexion</button>
+            <Link
+              to="/register"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <button type="button" className="navButton">
+                Inscription
+              </button>
+            </Link>
+            <Link
+              to="/login"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <button type="button" className="navButton">
+                Connexion
+              </button>
+            </Link>
           </div>
         )}
       </div>

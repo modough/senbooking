@@ -24,7 +24,7 @@ const SearchItem = ({ item }) => {
           </div>
         )}
         <div className="siDetailTexts">
-          <span className="siPrice">${item.cheapestPrice}</span>
+          <span className="siPrice">{item.cheapestPrice}€</span>
           <span className="siTaxOp">Taxes incluses</span>
           <Link to={`/hotels/${item._id}`}>
             <button className="siCheckButton">Voir disponibilités</button>
