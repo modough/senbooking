@@ -12,7 +12,7 @@ const Single = () => {
         <Navbar />
         <div className="top">
           <div className="left">
-            <div className="editButton">Edit</div>
+            <div className="editButton">Editer</div>
             <h1 className="title">Information</h1>
             <div className="item">
               <img
@@ -27,17 +27,17 @@ const Single = () => {
                   <span className="itemValue">janedoe@gmail.com</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Phone:</span>
+                  <span className="itemKey">Téléphone:</span>
                   <span className="itemValue">+1 2345 67 89</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Address:</span>
+                  <span className="itemKey">Adresse:</span>
                   <span className="itemValue">
                     Elton St. 234 Garden Yd. NewYork
                   </span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Country:</span>
+                  <span className="itemKey">Pays:</span>
                   <span className="itemValue">USA</span>
                 </div>
               </div>
@@ -48,8 +48,8 @@ const Single = () => {
           </div>
         </div>
         <div className="bottom">
-        <h1 className="title">Last Transactions</h1>
-          <List/>
+          <h1 className="title">Dernières Transactions</h1>
+          <List />
         </div>
       </div>
     </div>

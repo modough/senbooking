@@ -16,8 +16,8 @@ const List = () => {
       customer: "John Smith",
       date: "1 March",
       amount: 785,
-      method: "Cash on Delivery",
-      status: "Approved",
+      method: "En espéces",
+      status: "Approuvé",
     },
     {
       id: 2235235,
@@ -26,8 +26,8 @@ const List = () => {
       customer: "Michael Doe",
       date: "1 March",
       amount: 900,
-      method: "Online Payment",
-      status: "Pending",
+      method: "Paiement en ligne",
+      status: "En attente",
     },
     {
       id: 2342353,
@@ -36,8 +36,8 @@ const List = () => {
       customer: "John Smith",
       date: "1 March",
       amount: 35,
-      method: "Cash on Delivery",
-      status: "Pending",
+      method: "En espéces",
+      status: "En attente",
     },
     {
       id: 2357741,
@@ -46,8 +46,8 @@ const List = () => {
       customer: "Jane Smith",
       date: "1 March",
       amount: 920,
-      method: "Online",
-      status: "Approved",
+      method: "En ligne",
+      status: "Approuvé",
     },
     {
       id: 2342355,
@@ -56,8 +56,8 @@ const List = () => {
       customer: "Harold Carol",
       date: "1 March",
       amount: 2000,
-      method: "Online",
-      status: "Pending",
+      method: "En ligne",
+      status: "En attente",
     },
   ];
   return (
@@ -66,12 +66,12 @@ const List = () => {
         <TableHead>
           <TableRow>
             <TableCell className="tableCell">Tracking ID</TableCell>
-            <TableCell className="tableCell">Product</TableCell>
-            <TableCell className="tableCell">Customer</TableCell>
+            <TableCell className="tableCell">Produit</TableCell>
+            <TableCell className="tableCell">Client</TableCell>
             <TableCell className="tableCell">Date</TableCell>
-            <TableCell className="tableCell">Amount</TableCell>
-            <TableCell className="tableCell">Payment Method</TableCell>
-            <TableCell className="tableCell">Status</TableCell>
+            <TableCell className="tableCell">Somme</TableCell>
+            <TableCell className="tableCell">Méthode de paiement</TableCell>
+            <TableCell className="tableCell">Statut</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -60,9 +60,17 @@
               border-bottom: 1px solid gray;
             }
           }
+          .selectRooms {
+            width: 100%;
+            select {
+              width: 100%;
+              padding: 10px;
+            }
+          }
 
           button {
             width: 150px;
+
             padding: 10px;
             border: none;
             background-color: teal;
